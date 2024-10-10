@@ -1,19 +1,9 @@
 #!/bin/bash
 
+ip=$(nmcli dev show | grep 'IP4.DNS' | column -t | tr -s ":" " " | cut -d " " -f2)
+
 read -p "Username: " username
 read -s -p "Password: " password
 
-case $1 in
-    barlby);;
-    bedfont);;
-    bevington);;
-    marlborough);;
-    pfps)
-	xfreerdp /v:10.26.76.17 /u:$username /p:$password /w:2560 /h:1350;;
-    scsj)
-	xfreerdp /v:10.152.88.10 /u:$username /p:$password /w:2560 /h:1350;;
-    stcharles);;
-    stthomas);;
-    *) echo "Please enter the following options: barlby, bedfont, bevington, marlborough, pfps, scsj, stcharles or stthomas"
-esac
+xfreerdp /v:$ip /u:$username /p:$password /w:2560 /h:1350
 
