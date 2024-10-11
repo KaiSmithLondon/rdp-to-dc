@@ -5,5 +5,5 @@ ip=$(nmcli dev show | grep 'IP4.DNS' | column -t | tr -s ":" " " | cut -d " " -f
 read -p "Username: " username
 read -s -p "Password: " password
 
-xfreerdp /v:$ip /u:$username /p:$password /w:2560 /h:1350
+xfreerdp /v:$ip /u:$username /p:$password /dynamic-resolution
 
