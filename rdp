@@ -12,7 +12,6 @@ fi
 
 # Retrieves DC IP Address
 ip=$(nmcli dev show | grep 'IP4.DNS' | tr -s ":" " " | cut -d " " -f2)
-echo $ip
 
 # Input Windows Username/Password
 read -p "Username: " username
