@@ -1,9 +1,12 @@
 #!/bin/bash
 
+# Retrieves DC IP Address
 ip=$(nmcli dev show | grep 'IP4.DNS' | column -t | tr -s ":" " " | cut -d " " -f2)
 
+# Input Windows Username/Password
 read -p "Username: " username
 read -s -p "Password: " password
 
+# RDP Session
 xfreerdp /v:$ip /u:$username /p:$password /dynamic-resolution
 
